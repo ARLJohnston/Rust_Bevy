@@ -14,7 +14,18 @@
       {
         defaultPackage = naersk-lib.buildPackage ./.;
         devShell = with pkgs; mkShell {
-          buildInputs = [ cargo rustc rustfmt pre-commit rustPackages.clippy ];
+          buildInputs = [
+            cargo
+            rustc
+            rustfmt
+            pre-commit
+            rustPackages.clippy
+
+            alsa-oss
+            alsa-lib
+            pkg-config
+            libudev-zero
+           ];
           RUST_SRC_PATH = rustPlatform.rustLibSrc;
         };
       });
